@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Log = require('./log');
 const Schema = mongoose.Schema;
 
 const linkSchema = new Schema({
@@ -8,12 +9,14 @@ const linkSchema = new Schema({
     },
     shortenedUrl : {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-    log : {
+    logs : {
         type: [{
-            time: Date,
-            ip: String
+            type: Schema.Types.ObjectId,
+            ref: 'Log',
+            default: []
         }]
     }
 });
