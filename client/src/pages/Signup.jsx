@@ -1,8 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function Login() {
+export default function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -11,7 +9,7 @@ export default function Login() {
         event.preventDefault();
 
         // Replace with your actual URL
-        const url = "http://localhost:3000/api/user/login";
+        const url = "http://localhost:3000/api/user/signup";
 
         try {
             const response = await fetch(url, {
@@ -26,29 +24,23 @@ export default function Login() {
             if (response.status === 200) {
                 console.log(`token: ${data.token}`);
                 setError(null);
-                alert("Login successful");
+                alert("Account Created");
             } else {
                 setError(
-                    "Login not successful. Please check your username and password."
+                    "An error occurred. Please try again later."
                 );
             }
         } catch (error) {
             console.error(error);
-            if (error.response && error.response.status === 400) {
-                setError(
-                    "Login not successful. Please check your username and password."
-                );
-            } else {
-                setError("An error occurred. Please try again later.");
-            }
+            setError("An error occurred. Please try again later.");
         }
     };
     return (
         <div className="card auth login">
             <div className="modal">
-                <h2>Log In</h2>
+                <h2>Create an Account</h2>
                 <p>
-                    Don't have an account? Create one <a href="#">here</a>
+                    Have an account? <a href="#">Login</a>
                 </p>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="username">Username</label>
@@ -71,7 +63,7 @@ export default function Login() {
                         type="submit"
                         className="submit-button login-button"
                     >
-                        Log In
+                        Create Account
                     </button>
                 </form>
                 {error && <p className="error">{error}</p>}
