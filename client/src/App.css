@@ -1,42 +1,154 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: aliceblue;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body, html {
+    height: 100%;
+    /* font-family: Arial, sans-serif; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* .modal-background { */
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);#7F7FD5 #3D7877 #C2DEDE*/
+    background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
 }
 
-.card {
-  padding: 2em;
+.auth {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 40vw;
+    position: relative;
+    text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+}
+
+input {
+    color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.submit-button {
+    background-color: #7f7fd585;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    margin-left: 0%;
+}
+
+.link-list {
+    width: 100%;
+    max-width: 600px;
+}
+
+.link-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-name {
+    margin-right: 20px;
+}
+
+.link-url {
+    color: #ffffff;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.link-url:hover {
+    text-decoration: underline;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.delete-button:hover {
+    color: #333;
 }

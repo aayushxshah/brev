@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
 const dbPassword = process.env.DB_PASSWORD;
 
 const app = express();
+app.use(cors());
 
 const dbURI = `mongodb+srv://link-shortener:${dbPassword}@link-shortener.zkk3kzm.mongodb.net/link-shortener-database?retryWrites=true&w=majority&appName=link-shortener`
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
