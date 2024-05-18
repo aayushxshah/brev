@@ -16,17 +16,15 @@
 
 body, html {
     height: 100%;
-    /* font-family: Arial, sans-serif; */
+
 }
 
-/* .modal-background { */
 #root{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    /* background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);#7F7FD5 #3D7877 #C2DEDE*/
     background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
 }
 
@@ -91,6 +89,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
 }
 
 header {

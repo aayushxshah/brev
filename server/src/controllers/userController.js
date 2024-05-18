@@ -38,7 +38,7 @@ const signupPost = async (req,res) => {
     const {username, password} = req.body;
     try {
         const user = await User.signup(username, password);
-        res.status(200).json({ message: 'Success: Account Created', token: createToken(user._id) });
+        res.status(200).json({ message: 'Success: Account Created', token: createToken(user.id) });
     } catch(err) {
         res.status(400).send(err.message);
     }

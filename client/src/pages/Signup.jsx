@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import TokenContext from '../context/TokenContext';
 
 export default function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const { setToken } = useContext(TokenContext);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,7 +24,7 @@ export default function Signup() {
             const data = await response.json();
 
             if (response.status === 200) {
-                console.log(`token: ${data.token}`);
+                setToken(data.token);
                 setError(null);
                 alert("Account Created");
             } else {
@@ -37,7 +39,6 @@ export default function Signup() {
     };
     return (
         <div className="card auth login">
-            <div className="modal">
                 <h2>Create an Account</h2>
                 <p>
                     Have an account? <a href="#">Login</a>
@@ -67,7 +68,6 @@ export default function Signup() {
                     </button>
                 </form>
                 {error && <p className="error">{error}</p>}
-            </div>
         </div>
     );
 }
