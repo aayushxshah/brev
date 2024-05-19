@@ -3,17 +3,32 @@ const Link = require('../models/link');
 const Log = require('../models/log');
 
 const linkIdGet = async (req, res) => {
-    const link_id = req.params.id;
+    const linkId = req.params.id;
 
     try {
         const user = await User.findById(req.userId);
-        if (user && user.links.includes(link_id)){
-            const link = await Link.findById(link_id).populate('logs');
+        if (user && user.links.includes(linkId)){
+            const link = await Link.findById(linkId).populate('logs');
             if (link) {
                 res.json(link);
             } else {
                 res.status(400).json({message: 'Invalid link id'});
             }
+        } else {
+            res.status(400).json({message: 'Invalid user id'});
+        }
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+};
+
+const linkIdDelete = async (req, res) => {
+    const linkId = req.params.id;
+    try {
+        const user = await User.findById(req.userId);
+        if (user && user.links.includes(linkId)){
+            const link = await Link.findByIdAndDelete(linkId);
+            res.status(200).json({message: 'link deleted'});
         } else {
             res.status(400).json({message: 'Invalid user id'});
         }
@@ -73,4 +88,4 @@ const redirectGet = async (req,res) => {
     }
 };
 
-module.exports = { linkIdGet, allLinksGet, addLinkPost, redirectGet };
+module.exports = { linkIdGet, linkIdDelete, allLinksGet, addLinkPost, redirectGet };
