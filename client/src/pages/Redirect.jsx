@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Redirect() {
+    const navigate = useNavigate();
     const params = useParams();
 
     const { shortenedUrl } = params;
@@ -23,6 +25,7 @@ export default function Redirect() {
                 console.log("response:", data.url);
                 window.location.href = data.url;
             } else {
+                navigate('/404');
                 throw Error(`response status ${response.status}`);
             }
         } catch (error) {

@@ -11,7 +11,7 @@ export default function ViewLink() {
     const [content, setContent] = useState(
         <p className="loading">Loading...</p>
     );
-    const [title, setTitle] = useState("Link Shortener");
+    const [title, setTitle] = useState("Brev");
     const { token } = useContext(TokenContext);
     const params = useParams();
     const navigate = useNavigate();

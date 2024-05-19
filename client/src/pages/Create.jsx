@@ -31,7 +31,10 @@ export default function Create() {
 
             if (response.status === 201) {
                 navigate("/app/home");
-            } else {
+            } else if (response.status === 400) {
+                setError("Alias already exists");
+            }
+            else {
                 const data = await response.json();
                 console.error("error:", data.message);
             }
@@ -40,9 +43,14 @@ export default function Create() {
         }
     };
 
+    const handleClose = () => {
+        navigate("/app/home");
+    }
+
     return (
-        <div className="card auth">
+        <div className="card create">
             <h2>Create New Link</h2>
+            <button className="symbol close-button" onClick={handleClose}>&times;</button>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="shortened_link">Shortened Link</label>
                 <div className="short-link-entry">

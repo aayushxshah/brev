@@ -8,6 +8,7 @@ import Create from "./pages/Create";
 import ViewLink from "./pages/ViewLink";
 import "./App.css";
 import Redirect from "./pages/Redirect";
+import NotFound from "./pages/NotFound";
 
 function App() {
     return (
@@ -19,7 +20,9 @@ function App() {
                 <Route path="/app/home" element={<Home />} />
                 <Route path="/app/create" element={<Create />} />
                 <Route path="/app/viewlink/:linkID" element={<ViewLink />} />
+                <Route path="/404" element={<NotFound/>}/>
                 <Route path="/:shortenedUrl" element={<Redirect />} />
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </div>
     );

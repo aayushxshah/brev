@@ -69,17 +69,22 @@ const allLinksGet = async (req, res) => {
 const addLinkPost = async (req, res) => {
     const user_id = req.userId;
     const { url, shortenedUrl } = req.body;
-    const link = { url, shortenedUrl };
+    // const link = { url, shortenedUrl };
 
     try {
-        const link = new Link({ url, shortenedUrl });
-        await link.save();
-        const user = await User.findById(user_id);
-        user.links.push(link._id);
-        await user.save();
-        res.status(201).json(link);
+        const linkExists = await Link.findOne({ shortenedUrl });
+        if (linkExists) {
+            res.status(400).json({ message: 'alias already exists '});
+        } else {
+            const link = new Link({ url, shortenedUrl });
+            await link.save();
+            const user = await User.findById(user_id);
+            user.links.push(link._id);
+            await user.save();
+            res.status(201).json(link);
+        }
     } catch(err) {
-        res.status(400).send(err.message);
+        res.status(500).send(err.message);
     }
 };
 

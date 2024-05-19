@@ -16,7 +16,7 @@
 
 body, html {
     height: 100%;
-
+    
 }
 
 #root{
@@ -28,18 +28,26 @@ body, html {
     background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
 }
 
-.auth {
+.card {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    width: 40vw;
+    width: 75vw;
+    max-width: 600px;
     position: relative;
     text-align: center;
 }
 
+.auth {
+    max-width: 400px;
+}
+
 h2 {
     margin-bottom: 10px;
+}
+
+.error {
+    margin-top: 20px;
 }
 
 p {
@@ -118,6 +126,7 @@ header {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
+    height: 10vh
 }
 
 .header-title {
@@ -126,8 +135,10 @@ header {
 }
 
 .link-list {
-    width: 100%;
+    width: 75vw;
     max-width: 600px;
+    height: 85vh;
+    overflow-y: auto;
 }
 
 .display-card {
@@ -150,7 +161,7 @@ header {
 
 .link-url {
     color: #ffffff;
-    text-decoration: none;
+    text-decoration: underline;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -158,6 +169,7 @@ header {
 
 .link-url:hover {
     text-decoration: underline;
+    color: #b7c3fc;
 }
 
 .symbol {
@@ -170,4 +182,23 @@ header {
 
 .symbol:hover {
     color: #333;
+}
+
+.create {
+    max-width: 400px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .card {
+        min-width: 350px;
+    }
+    .link-list {
+        min-width: 350px;
+    }
 }

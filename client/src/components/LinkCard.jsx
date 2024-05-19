@@ -34,7 +34,7 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     }
 
     return (
-        <div className="link-card display-card" onClick={onClickHandle}>
+        <div className="link-card display-card card" onClick={onClickHandle}>
             <h3 className="link-name">{shortenedUrl}</h3>
             <a href={url} className="link-url">
                 {url}
