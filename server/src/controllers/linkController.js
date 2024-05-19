@@ -27,7 +27,20 @@ const linkIdDelete = async (req, res) => {
     try {
         const user = await User.findById(req.userId);
         if (user && user.links.includes(linkId)){
-            const link = await Link.findByIdAndDelete(linkId);
+
+            const index = user.links.indexOf(linkId);
+            if (index > -1) {
+                user.links.splice(index, 1);
+            }
+            await user.save();
+
+            const link = await Link.findById(linkId);
+            for (let i = 0; i < link.logs.length; i++){
+                await Log.findByIdAndDelete(link.logs[i]);
+            }
+
+            await Link.findByIdAndDelete(linkId);
+
             res.status(200).json({message: 'link deleted'});
         } else {
             res.status(400).json({message: 'Invalid user id'});
