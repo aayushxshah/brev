@@ -10,7 +10,7 @@ const redirectGet = async (req,res) => {
             link.logs.push(log._id);
             await log.save();
             await link.save();
-            res.status(200).send(link.url);
+            res.status(200).json({url: link.url});
         } else {
             res.status(404).send('invalid');
         }

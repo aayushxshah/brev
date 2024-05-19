@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TokenContext from "../context/TokenContext";
 
 export default function Login() {
@@ -30,8 +30,7 @@ export default function Login() {
             if (response.status === 200) {
                 setToken(data.token);
                 setError(null);
-                alert("Login successful");
-                navigate('/')
+                navigate("/home");
             } else {
                 setError(
                     "Login not successful. Please check your username and password."
@@ -52,7 +51,7 @@ export default function Login() {
         <div className="card auth login">
             <h2>Log In</h2>
             <p>
-                Don't have an account? Create one <a href="#">here</a>
+                Don't have an account? <Link to="/signup">Create Account</Link>
             </p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>

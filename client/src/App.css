@@ -114,7 +114,7 @@ header {
     max-width: 600px;
 }
 
-.link-card {
+.display-card {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     padding: 20px;
@@ -122,6 +122,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.link-card {
+    cursor: pointer;
 }
 
 .link-name {
@@ -140,7 +144,7 @@ header {
     text-decoration: underline;
 }
 
-.delete-button {
+.symbol {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -148,6 +152,6 @@ header {
     color: #999;
 }
 
-.delete-button:hover {
+.symbol:hover {
     color: #333;
 }

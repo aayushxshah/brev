@@ -1,25 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import LinkCard from "../components/LinkCard";
-import Navbar from "../components/Navbar";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import TokenContext from "../context/TokenContext";
+import Navbar from "../components/Navbar";
+import LogCard from "../components/LogCard";
 import NoData from "../components/NoData";
 
-export default function Home() {
+export default function ViewLink() {
     const [content, setContent] = useState(
         <p className="loading">Loading...</p>
     );
-    const navigate = useNavigate();
+    const [title, setTitle] = useState("Link Shortener");
     const { token } = useContext(TokenContext);
+    const params = useParams();
+    const navigate = useNavigate();
 
     if (token.length === 0) {
         navigate("/login");
     }
 
+    const { linkID } = params;
+
     const onLoad = async () => {
-        const url = "http://localhost:3000/api/link/all-links";
+        const url = `http://localhost:3000/api/link/${linkID}`;
 
         try {
             const response = await fetch(url, {
@@ -35,12 +39,13 @@ export default function Home() {
             } else if (response.status === 200) {
                 const data = await response.json();
                 const cardStack = [];
-                if (data.length === 0) {
+                if (data.logs.length === 0) {
                     cardStack.push(<NoData />);
                 }
-                for (let i = 0; i < data.length; i++) {
-                    cardStack.push(<LinkCard {...data[i]} />);
+                for (let i = 0; i < data.logs.length; i++) {
+                    cardStack.push(<LogCard {...data.logs[i]} />);
                 }
+                setTitle(data.shortenedUrl);
                 setContent(cardStack);
             } else {
                 throw Error(`response status ${response.status}`);
@@ -56,7 +61,7 @@ export default function Home() {
 
     return (
         <div className="container">
-            <Navbar page={"home"} />
+            <Navbar page={"viewLink"} title={title} />
             <div className="link-list">{content}</div>
         </div>
     );

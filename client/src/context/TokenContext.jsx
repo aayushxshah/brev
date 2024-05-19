@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const TokenContext = createContext();
 
-export function TokenContextProvider ({ children }) {
-    const [token, setToken] = useState('');
+export function TokenContextProvider({ children }) {
+    const [token, setToken] = useState("");
 
     return (
         <TokenContext.Provider value={{ token, setToken }}>

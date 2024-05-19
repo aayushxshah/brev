@@ -1,11 +1,13 @@
-import { useContext, useState } from 'react';
-import TokenContext from '../context/TokenContext';
+import { useContext, useState } from "react";
+import TokenContext from "../context/TokenContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const { setToken } = useContext(TokenContext);
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -26,11 +28,9 @@ export default function Signup() {
             if (response.status === 200) {
                 setToken(data.token);
                 setError(null);
-                alert("Account Created");
+                navigate("/home");
             } else {
-                setError(
-                    "An error occurred. Please try again later."
-                );
+                setError("An error occurred. Please try again later.");
             }
         } catch (error) {
             console.error(error);
@@ -39,35 +39,35 @@ export default function Signup() {
     };
     return (
         <div className="card auth login">
-                <h2>Create an Account</h2>
-                <p>
-                    Have an account? <a href="#">Login</a>
-                </p>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button
-                        type="submit"
-                        className="submit-button login-button"
-                    >
-                        Create Account
-                    </button>
-                </form>
-                {error && <p className="error">{error}</p>}
+            <h2>Create an Account</h2>
+            <p>
+                Have an account?{" "}
+                <a>
+                    <Link to="/login">Login</Link>
+                </a>
+            </p>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button type="submit" className="submit-button login-button">
+                    Create Account
+                </button>
+            </form>
+            {error && <p className="error">{error}</p>}
         </div>
     );
 }
