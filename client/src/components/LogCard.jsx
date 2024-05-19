@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 export default function LogCard({ ip, time }) {
     const dateObj = new Date(time);
-    console.log("made", time);
 
     return (
         <div className="log-card display-card">

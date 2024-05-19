@@ -30,7 +30,7 @@ export default function Create() {
             });
 
             if (response.status === 201) {
-                navigate("/home");
+                navigate("/app/home");
             } else {
                 const data = await response.json();
                 console.error("error:", data.message);
@@ -45,13 +45,16 @@ export default function Create() {
             <h2>Create New Link</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="shortened_link">Shortened Link</label>
-                <input
-                    type="text"
-                    id="shortened_link"
-                    name="shortened_link"
-                    value={shortenedLink}
-                    onChange={(e) => setShortenedLink(e.target.value)}
-                />
+                <div className="short-link-entry">
+                    <h3>www.domain.com/</h3>
+                    <input
+                        type="text"
+                        id="shortened_link"
+                        name="shortened_link"
+                        value={shortenedLink}
+                        onChange={(e) => setShortenedLink(e.target.value)}
+                    />
+                </div>
                 <label htmlFor="link">Link to Shorten</label>
                 <input
                     type="text"
@@ -67,5 +70,4 @@ export default function Create() {
             {error && <p className="error">{error}</p>}
         </div>
     );
-    // return(<h2>test</h2>)
 }

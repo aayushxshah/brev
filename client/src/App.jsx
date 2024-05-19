@@ -13,11 +13,11 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/create" element={<Create />} />
-                <Route path="/viewlink/:linkID" element={<ViewLink />} />
+                <Route path="/app/signup" element={<Signup />} />
+                <Route path="/app/login" element={<Login />} />
+                <Route path="/app/home" element={<Home />} />
+                <Route path="/app/create" element={<Create />} />
+                <Route path="/app/viewlink/:linkID" element={<ViewLink />} />
                 <Route path="/:shortenedUrl" element={<Redirect />} />
             </Routes>
         </div>

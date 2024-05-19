@@ -15,7 +15,7 @@ export default function Home() {
     const { token } = useContext(TokenContext);
 
     if (token.length === 0) {
-        navigate("/login");
+        navigate("/app/login");
     }
 
     const onLoad = async () => {
@@ -31,7 +31,7 @@ export default function Home() {
             });
 
             if (response.status === 401) {
-                navigate("/login");
+                navigate("/app/login");
             } else if (response.status === 200) {
                 const data = await response.json();
                 const cardStack = [];

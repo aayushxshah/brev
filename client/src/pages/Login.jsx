@@ -30,7 +30,7 @@ export default function Login() {
             if (response.status === 200) {
                 setToken(data.token);
                 setError(null);
-                navigate("/home");
+                navigate("/app/home");
             } else {
                 setError(
                     "Login not successful. Please check your username and password."
@@ -51,7 +51,7 @@ export default function Login() {
         <div className="card auth login">
             <h2>Log In</h2>
             <p>
-                Don't have an account? <Link to="/signup">Create Account</Link>
+                Don't have an account? <Link to="/app/signup">Create Account</Link>
             </p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>

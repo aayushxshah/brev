@@ -17,7 +17,7 @@ export default function ViewLink() {
     const navigate = useNavigate();
 
     if (token.length === 0) {
-        navigate("/login");
+        navigate("/app/login");
     }
 
     const { linkID } = params;
@@ -35,7 +35,7 @@ export default function ViewLink() {
             });
 
             if (response.status === 401) {
-                navigate("/login");
+                navigate("/app/login");
             } else if (response.status === 200) {
                 const data = await response.json();
                 const cardStack = [];

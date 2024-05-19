@@ -28,7 +28,7 @@ export default function Signup() {
             if (response.status === 200) {
                 setToken(data.token);
                 setError(null);
-                navigate("/home");
+                navigate("/app/home");
             } else {
                 setError("An error occurred. Please try again later.");
             }
@@ -43,7 +43,7 @@ export default function Signup() {
             <p>
                 Have an account?{" "}
                 <a>
-                    <Link to="/login">Login</Link>
+                    <Link to="/app/login">Login</Link>
                 </a>
             </p>
             <form onSubmit={handleSubmit}>

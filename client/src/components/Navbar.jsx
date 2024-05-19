@@ -12,7 +12,7 @@ export default function Navbar({ page, title }) {
             return (
                 <header>
                     <h1 className="header-title">Link Shortener</h1>
-                    <Link to="/create">Create New</Link>
+                    <Link to="/app/create">Create New</Link>
                 </header>
             );
         case "viewLink":

@@ -8,7 +8,7 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     const navigate = useNavigate();
 
     const onClickHandle = () => {
-        navigate(`/viewlink/${_id}`);
+        navigate(`/app/viewlink/${_id}`);
     };
 
     const onClickDeleteHandle = async () => {
@@ -24,7 +24,7 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
             });
 
             if (response.status === 200) {
-                navigate("/home");
+                navigate("/app/home");
             } else {
                 throw Error(`response status ${response.status}`);
             }
