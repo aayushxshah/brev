@@ -19,7 +19,7 @@ export default function Home() {
     }
 
     const onLoad = async () => {
-        const url = "http://localhost:3000/api/link/all-links";
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/all-links`;
 
         try {
             const response = await fetch(url, {

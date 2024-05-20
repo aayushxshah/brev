@@ -12,7 +12,7 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     };
 
     const onClickDeleteHandle = async () => {
-        const url = `http://localhost:3000/api/link/${_id}`;
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/${_id}`;
 
         try {
             const response = await fetch(url, {

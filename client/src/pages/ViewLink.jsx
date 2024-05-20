@@ -23,7 +23,7 @@ export default function ViewLink() {
     const { linkID } = params;
 
     const onLoad = async () => {
-        const url = `http://localhost:3000/api/link/${linkID}`;
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/${linkID}`;
 
         try {
             const response = await fetch(url, {

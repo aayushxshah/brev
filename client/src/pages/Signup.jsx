@@ -13,7 +13,7 @@ export default function Signup() {
         event.preventDefault();
 
         // Replace with your actual URL
-        const url = "http://localhost:3000/api/user/signup";
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/user/signup`;
 
         try {
             const response = await fetch(url, {

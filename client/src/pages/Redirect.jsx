@@ -10,7 +10,7 @@ export default function Redirect() {
     const { shortenedUrl } = params;
 
     const onLoad = async () => {
-        const url = `http://localhost:3000/api/redirect/${shortenedUrl}`;
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/redirect/${shortenedUrl}`;
 
         try {
             const response = await fetch(url, {

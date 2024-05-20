@@ -20,7 +20,7 @@ export default function Create() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const url = "http://localhost:3000/api/link/add-link";
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/add-link`;
 
         try {
             const response = await fetch(url, {
