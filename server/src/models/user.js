@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Link = require('./link');
 
 const bcrypt = require('bcrypt');
 

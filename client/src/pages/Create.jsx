@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TokenContext from "../context/TokenContext";
 
@@ -10,6 +10,12 @@ export default function Create() {
     const [error, setError] = useState(null);
     const { token } = useContext(TokenContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (token.length === 0) {
+            navigate("/app/login");
+        }
+    }, [token, navigate]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
