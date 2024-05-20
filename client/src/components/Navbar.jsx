@@ -10,14 +10,14 @@ export default function Navbar({ page, title }) {
     switch (page) {
         case "home":
             return (
-                <header className="display-card card">
+                <header className="nav display-card card">
                     <h1 className="header-title">Brev</h1>
                     <Link to="/app/create">Create New</Link>
                 </header>
             );
         case "viewLink":
             return (
-                <header className="title-center display-card">
+                <header className="nav title-center display-card">
                     <button className="back-button symbol" onClick={backHandle}>
                         &lt;
                     </button>

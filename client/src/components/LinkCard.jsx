@@ -36,7 +36,7 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     return (
         <div className="link-card display-card card" onClick={onClickHandle}>
             <h3 className="link-name">{shortenedUrl}</h3>
-            <a href={url} className="link-url">
+            <a href={url} target="_blank" className="link-url">
                 {url}
             </a>
             <button className="symbol delete-button" onClick={onClickDeleteHandle}>&times;</button>

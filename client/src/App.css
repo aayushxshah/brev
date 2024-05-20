@@ -11,7 +11,7 @@
     padding: 0;
     font-family: 'Poppins';
     font-weight: 500;
-    color: aliceblue;
+    color: #EEF0EB;
 }
 
 body, html {
@@ -25,11 +25,12 @@ body, html {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
+    background: rgb(40,75,96);
+    background: linear-gradient(45deg, rgba(40,75,96,1) 0%, rgba(230,230,221,1) 100%);
 }
 
 .card {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(7, 16, 22, 0.4);
     border-radius: 20px;
     padding: 20px;
     width: 75vw;
@@ -64,12 +65,13 @@ label {
 }
 
 input {
-    color: black;
+    color: #071016;
+    font-size: 16px;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #EEF0EB;
 }
 
 .short-link-entry {
@@ -89,7 +91,7 @@ input {
 }
 
 .submit-button {
-    background-color: #7f7fd585;
+    background-color: #153243;
     border: none;
     border-radius: 20px;
     padding: 10px;
@@ -107,7 +109,8 @@ a:hover {
 }
 
 .container {
-    background: linear-gradient(to right top, #7f7fd5, #6f77c4, #606fb2, #5467a1, #495e8f, #496691, #4b6e92, #517593, #678fa5, #82aab7, #a1c4ca, #c2dede);
+    background: rgb(40,75,96);
+    background: linear-gradient(45deg, rgba(40,75,96,1) 0%, rgba(230,230,221,1) 100%);    
     min-height: 100vh;
     padding: 20px;
     display: flex;
@@ -116,8 +119,8 @@ a:hover {
     width: 100vw;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.4);
+.nav {
+    background-color: rgba(7, 16, 22, 0.5);
     width: 100%;
     max-width: 600px;
     display: flex;
@@ -155,12 +158,17 @@ header {
     cursor: pointer;
 }
 
+.link-card:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .link-name {
     margin-right: 20px;
 }
 
 .link-url {
-    color: #ffffff;
+    color: #e6e6ddbe;
     text-decoration: underline;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -169,7 +177,7 @@ header {
 
 .link-url:hover {
     text-decoration: underline;
-    color: #b7c3fc;
+    color: #EEF0EB;
 }
 
 .symbol {
@@ -181,7 +189,7 @@ header {
 }
 
 .symbol:hover {
-    color: #333;
+    color: #EEF0EB;
 }
 
 .create {
