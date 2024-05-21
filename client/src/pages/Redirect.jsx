@@ -17,7 +17,7 @@ export default function Redirect() {
             const ipAddressResponse = await fetch('https://api64.ipify.org?format=json');
             ipAddressJSON = await ipAddressResponse.json();
         } catch (error) {
-            ipAddressJSON = "no ip address";
+            ipAddressJSON = { ip: "None" };
         }
 
         try {
