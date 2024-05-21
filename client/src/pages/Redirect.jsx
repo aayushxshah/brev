@@ -11,11 +11,16 @@ export default function Redirect() {
 
     const onLoad = async () => {
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/redirect/${shortenedUrl}`;
+        let ipAddressJSON;
 
         try {
             const ipAddressResponse = await fetch('https://api64.ipify.org?format=json');
-            const ipAddressJSON = await ipAddressResponse.json();
+            ipAddressJSON = await ipAddressResponse.json();
+        } catch (error) {
+            ipAddressJSON = "no ip address";
+        }
 
+        try {
             const response = await fetch(url, {
                 method: "GET",
                 headers: {
