@@ -17,7 +17,7 @@ export default function Navbar({ page, title }) {
             );
         case "viewLink":
             return (
-                <header className="nav title-center display-card">
+                <header className="nav title-center display-card card">
                     <button className="back-button symbol" onClick={backHandle}>
                         &lt;
                     </button>

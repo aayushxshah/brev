@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import TokenContext from "../context/TokenContext";
-import { useContext } from "react";
 
 export default function LinkCard({ shortenedUrl, url, _id }) {
     const { token } = useContext(TokenContext);

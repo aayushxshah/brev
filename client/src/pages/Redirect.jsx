@@ -13,16 +13,19 @@ export default function Redirect() {
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/redirect/${shortenedUrl}`;
 
         try {
+            const ipAddressResponse = await fetch('https://api64.ipify.org?format=json');
+            const ipAddressJSON = await ipAddressResponse.json();
+
             const response = await fetch(url, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    "X-Forwarded-For": `${ipAddressJSON.ip}`
                 },
             });
 
             if (response.status === 200) {
                 const data = await response.json();
-                console.log("response:", data.url);
                 window.location.href = data.url;
             } else {
                 navigate('/404');

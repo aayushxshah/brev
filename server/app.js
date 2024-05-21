@@ -8,6 +8,7 @@ require('dotenv').config();
 const dbPassword = process.env.DB_PASSWORD;
 
 const app = express();
+app.enable('trust proxy');
 app.use(cors());
 app.use(morgan('tiny'));
 
