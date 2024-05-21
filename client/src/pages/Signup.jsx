@@ -11,8 +11,8 @@ export default function Signup() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError("Loading...");
 
-        // Replace with your actual URL
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/user/signup`;
 
         try {

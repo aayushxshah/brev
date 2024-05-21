@@ -7,11 +7,17 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     const { token } = useContext(TokenContext);
     const navigate = useNavigate();
 
-    const onClickHandle = () => {
+    const onClickCard = () => {
         navigate(`/app/viewlink/${_id}`);
     };
 
-    const onClickDeleteHandle = async () => {
+    const onClickCopy = (event) => {
+        event.stopPropagation();
+        navigator.clipboard.writeText(`${import.meta.env.VITE_BASE_URL}/${shortenedUrl}`);
+    }
+
+    const onClickDelete = async (event) => {
+        event.stopPropagation();
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/${_id}`;
 
         try {
@@ -34,12 +40,15 @@ export default function LinkCard({ shortenedUrl, url, _id }) {
     }
 
     return (
-        <div className="link-card display-card card" onClick={onClickHandle}>
-            <h3 className="link-name">{shortenedUrl}</h3>
-            <a href={url} target="_blank" className="link-url">
-                {url}
-            </a>
-            <button className="symbol delete-button" onClick={onClickDeleteHandle}>&times;</button>
+        <div className="link-card display-card card" onClick={onClickCard}>
+            <div className="link-details">
+                <h3 className="link-name">{shortenedUrl}</h3>
+                <a href={url} target="_blank" className="link-url">
+                    {url}
+                </a>
+            </div>
+            <button className="symbol copy-button" onClick={onClickCopy}>&#128203;</button>
+            <button className="symbol delete-button" onClick={onClickDelete}>&times;</button>
         </div>
     );
 }

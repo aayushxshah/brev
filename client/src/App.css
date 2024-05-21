@@ -121,7 +121,7 @@ a:hover {
 
 .nav {
     background-color: rgba(7, 16, 22, 0.5);
-    width: 100%;
+    width: 75vw;
     max-width: 600px;
     display: flex;
     justify-content: space-between;
@@ -156,11 +156,21 @@ a:hover {
 
 .link-card {
     cursor: pointer;
+    display: flex;
+    align-items: center; 
 }
 
 .link-card:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.link-details {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-right: 10px;
+    overflow: hidden;
 }
 
 .link-name {
@@ -173,6 +183,7 @@ a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-right: 10px;
 }
 
 .link-url:hover {
@@ -186,6 +197,7 @@ a:hover {
     font-size: 1.5rem;
     cursor: pointer;
     color: #999;
+    margin-left: 10px;
 }
 
 .symbol:hover {
@@ -193,7 +205,7 @@ a:hover {
 }
 
 .create {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .close-button {
@@ -208,5 +220,11 @@ a:hover {
     }
     .link-list {
         min-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .link-url {
+        visibility: hidden;
     }
 }

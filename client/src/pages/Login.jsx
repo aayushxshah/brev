@@ -10,12 +10,11 @@ export default function Login() {
     const [error, setError] = useState(null);
     const { setToken } = useContext(TokenContext);
     const navigate = useNavigate();
-    // const baseURL = process.env.REACT_APP_BASE_URL;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError("Loading...");
 
-        // Replace with your actual URL
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/user/login`;
 
         try {

@@ -19,6 +19,7 @@ export default function Create() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError("Loading...");
 
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/link/add-link`;
 
@@ -60,7 +61,7 @@ export default function Create() {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="shortened_link">Shortened Link</label>
                 <div className="short-link-entry">
-                    <h3>www.domain.com/</h3>
+                    <h4 className="domain">{import.meta.env.VITE_BASE_URL}/</h4>
                     <input
                         type="text"
                         id="shortened_link"
